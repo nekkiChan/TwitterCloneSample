@@ -34,6 +34,22 @@ $view_tweets = [
 
 // 便利な関数
 /**
+ * 画像ファイル名から画像のURLを生成する
+ * 
+ * @param string $name 画像ファイル名
+ * @param string $type user | tweet
+ * @return string 
+ */
+function buildImagePath(string $name = null, string $type)
+{
+    if ($type === 'user' && !isset($name)) {
+        return HOME_URL . 'Views/img/icon-default-user.svg';
+    }
+
+    return HOME_URL . 'Views/img_uploaded/' . $type . '/' . htmlspecialchars($name);
+}
+
+/**
  * 指定した日時からどれだけ経過したかを取得
  * @param string $datetime 日時
  * @return string
@@ -154,34 +170,30 @@ function convertToDayTimeAgo(string $datetime)
                     <div class="tweet-list">
                         <div class="tweet">
                             <div class="user">
-                                <a href="profile.php?user_id=<?php echo $view_tweet['user_id']; ?>">
-                                    <?php if (isset($view_tweet['user_image_name'])): ?>
-                                        <img src="<?php echo HOME_URL; ?>Views/img_uploaded/user/<?php echo $view_tweet['user_image_name']; ?>"
-                                            alt="">
-                                    <?php else: ?>
-                                        <img src="<?php echo HOME_URL; ?>Views/img/icon-default-user.svg" alt="">
-                                    <?php endif; ?>
+                                <a href="profile.php?user_id=<?php echo htmlspecialchars($view_tweet['user_id']); ?>">
+                                    <img src="<?php echo buildImagePath($view_tweet['user_image_name'], 'user'); ?>" alt="">
                                 </a>
                             </div>
                             <div class="content">
                                 <div class="name">
-                                    <a href="profile.php?user_id=<?php echo $view_tweet['user_id']; ?>">
+                                    <a href="profile.php?user_id=<?php echo htmlspecialchars($view_tweet['user_id']); ?>">
                                         <span class="nickname">
-                                            <?php echo $view_tweet['user_nickname']; ?>
+                                            <?php echo htmlspecialchars($view_tweet['user_nickname']); ?>
                                         </span>
                                         <span class="user-name">
-                                            <?php echo $view_tweet['user_name']; ?> ・
+                                            @
+                                            <?php echo htmlspecialchars($view_tweet['user_name']); ?> ・
                                             <?php echo convertToDayTimeAgo($view_tweet['tweet_created_at']); ?>
                                         </span>
                                     </a>
                                 </div>
                                 <p>
-                                    <?php echo $view_tweet['tweet_body']; ?>
+                                    <?php echo htmlspecialchars($view_tweet['tweet_body']); ?>
                                 </p>
 
                                 <?php if (isset($view_tweet['tweet_image_name'])): ?>
-                                    <img src="<?php echo HOME_URL; ?>Views/img_uploaded/tweet/<?php echo $view_tweet['tweet_image_name']; ?>"
-                                        alt="" class="post-image" class=>
+                                    <img src="<?php echo buildImagePath($view_tweet['tweet_image_name'], 'tweet'); ?>" alt=""
+                                        class="post-image">
                                 <?php endif; ?>
 
                                 <div class="icon-list">
@@ -197,7 +209,7 @@ function convertToDayTimeAgo(string $datetime)
                                         ?>
                                     </div>
                                     <div class="like-count">
-                                        <?php echo $view_tweet['like_count']; ?>
+                                        <?php echo htmlspecialchars($view_tweet['like_count']); ?>
                                     </div>
                                 </div>
                             </div>
