@@ -112,6 +112,7 @@ function convertToDayTimeAgo(string $datetime)
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"
         defer></script>
+    <script src="<?php echo HOME_URL; ?>Views/js/likes.js" defer></script>
 
     <title>ホーム画面 / Twitterクローン</title>
     <meta name="description" content="ホーム画面です">
@@ -207,7 +208,8 @@ function convertToDayTimeAgo(string $datetime)
                                 <?php endif; ?>
 
                                 <div class="icon-list">
-                                    <div class="like">
+                                    <div class="like js-like"
+                                        data-like-id="<?php echo htmlspecialchars($view_tweet['like_id']); ?>">
                                         <?php
                                         if (isset($view_tweet['like_id'])) {
                                             // いいね！している場合、青のハートを表示
@@ -218,7 +220,7 @@ function convertToDayTimeAgo(string $datetime)
                                         }
                                         ?>
                                     </div>
-                                    <div class="like-count">
+                                    <div class="like-count js-like-count">
                                         <?php echo htmlspecialchars($view_tweet['like_count']); ?>
                                     </div>
                                 </div>
@@ -229,11 +231,7 @@ function convertToDayTimeAgo(string $datetime)
             <?php endif; ?>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            $('.js-popover').popover();
-        }, false);
-    </script>
+    <script src="<?php echo HOME_URL; ?>Views/js/markup_ballon.js"></script>
 </body>
 
 </html>
