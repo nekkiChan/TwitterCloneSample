@@ -63,24 +63,26 @@
                         <img src="../Views/img_uploaded/user/sample-person.jpg" alt="">
                     </div>
                     <button class="btn btn-reverse btn-sm">プロフィール編集</button>
+                </div>
 
-                    <div class="name">太郎</div>
-                    <div class="text-muted">@taro</div>
+                <div class="name">太郎</div>
+                <div class="text-muted">@taro</div>
 
-                    <div class="follow-follower">
-                        <div class="follow-count">1</div>
-                        <div class="follow-text">フォロー</div>
-                        <div class="follow-count">1</div>
-                        <div class="follow-text">フォロワー</div>
-                    </div>
-
-                    <!-- 仕切りエリア -->
-                    <div class="ditch"></div>
-
-                    <!-- つぶやき一覧エリア -->
+                <div class="follow-follower">
+                    <div class="follow-count">1</div>
+                    <div class="follow-text">フォロー</div>
+                    <div class="follow-count">1</div>
+                    <div class="follow-text">フォロワー</div>
                 </div>
             </div>
-            <script src="../Views/js/markup_ballon.js"></script>
+
+            <!-- 仕切りエリア -->
+            <div class="ditch"></div>
+
+            <!-- つぶやき一覧エリア -->
+        </div>
+    </div>
+    <script src="../Views/js/markup_ballon.js"></script>
 </body>
 
 </html>

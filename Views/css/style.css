@@ -1,4 +1,6 @@
-@charset "utf-8"; /* 全体 */
+@charset "utf-8";
+
+/* 全体 */
 .container {
     display: flex;
     justify-content: center;
@@ -45,6 +47,16 @@
     color: #fff;
 }
 
+.btn-reverse {
+    background: #fff;
+    color: #1af;
+    border: 1px solid #1af;
+}
+
+.btn-reverse:hover {
+    color: #1af;
+}
+
 a {
     font-size: 13px;
     color: #1af;
@@ -87,7 +99,7 @@ a {
 
 @media screen and (max-width: 500px) {
     .side .side-inner img {
-        width:70%;
+        width: 70%;
         margin-bottom: 15px;
     }
 
@@ -233,7 +245,7 @@ a {
 
 @media screen and (max-width: 500px) {
     .home .tweet-list .tweet .user {
-        width:60px;
+        width: 60px;
         padding: 5px 10px 10px 5px;
     }
 
@@ -284,4 +296,53 @@ body.signup {
     background-color: #123;
     border-color: #1af;
     color: #fff;
+}
+
+/* ユーザー */
+.profile .profile-area {
+    padding: 25px;
+}
+
+.profile .profile-area .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.profile .profile-area .top .user {
+    width: 30%;
+    padding: 5px 12px 10px 0;
+}
+
+.profile .profile-area .top .user img {
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid rgb(235, 238, 240);
+}
+
+.profile .profile-area .top button {
+    margin-bottom: 20px;
+}
+
+.profile .profile-area .name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.profile .profile-area .follow-follower {
+    display: flex;
+    padding: 15px 0 10px 0;
+}
+
+.profile .profile-area .follow-follower .follow-count {
+    width: 30px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.profile .profile-area .follow-follower .follow-text {
+    width: 100px;
+    font-size: 16px;
+    margin-right: 30px;
+    color: #778;
 }
