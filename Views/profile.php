@@ -67,8 +67,19 @@
                     <div class="user">
                         <img src="../Views/img_uploaded/user/sample-person.jpg" alt="">
                     </div>
-                    <button class="btn btn-reverse btn-sm" data-bs-toggle="modal"
-                        data-bs-target="#js-modal">プロフィール編集</button>
+
+                    <?php if (isset($_GET['user_id'])): ?>
+                        <!-- 相手のページ -->
+                        <?php if (isset($_GET['case'])): ?>
+                            <button class="btn btn-sm btn-reverse">フォローを外す</button>
+                        <?php else: ?>
+                            <button class="btn btn-sm btn-reverse">フォローする</button>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <!-- 自分のページ -->
+                        <button class="btn btn-reverse btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#js-modal">プロフィール編集</button>
+                    <?php endif; ?>
 
                     <div class="modal fade" id="js-modal" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog">
