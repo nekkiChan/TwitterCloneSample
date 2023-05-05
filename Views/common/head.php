@@ -1,7 +1,5 @@
 <?php
-/**
- * SUMMARY:ヘッダー部分
- */
+// OVERVIEW:ヘッダー部分
 ?>
 
 <meta charset="UTF-8">

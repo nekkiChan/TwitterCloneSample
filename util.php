@@ -1,11 +1,8 @@
 <?php
-/**
- * SUMMARY:便利な関数
- */
+// OVERVIEW:便利な関数
 
 /**
  * 画像ファイル名から画像のURLを生成する
- * 
  * @param string $name 画像ファイル名
  * @param string $type user | tweet
  * @return string 
@@ -26,10 +23,11 @@ function buildImagePath(string $name = null, string $type)
  */
 function convertToDayTimeAgo(string $datetime)
 {
-    // $unix:1970-01-01 00:00:00から$datetimeまでの経過秒数
+    /** 1970-01-01 00:00:00 から $datetime までの 経過秒数 */
     $unix = strtotime($datetime);
-    // $now:1970-01-01 00:00:00から現時間までの経過秒数
+    /** 1970-01-01 00:00:00 から 現時間 までの 経過秒数 */
     $now = time();
+    /** $datetime から 現時間 までの 秒数差 */
     $diff_sec = $now - $unix;
 
     // $unixと$nowの年月日時分が同じだった場合

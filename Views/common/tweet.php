@@ -1,7 +1,5 @@
 <?php
-/**
- * SUMMARY:ツイート関連
- */
+// OVERVIEW:ツイート関連
 ?>
 
 <div class="tweet">

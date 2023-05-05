@@ -1,7 +1,5 @@
 <?php
-/**
- * SUMMARY:サインアップコントローラー
- */
+// OVERVIEW:サインアップコントローラー
 
 // 設定を読み込み
 include_once '../config.php';
@@ -19,7 +17,7 @@ if (isset($_POST['nickname']) && isset($_POST['name']) && isset($_POST['email'])
         'password' => $_POST['password'],
     ];
     // ユーザーが作成し、成功すれば
-    if (true) {
+    if (createUser($data)) {
         // ログイン画面に遷移
         header('Location: ' . HOME_URL . 'Controllers/sign-in.php');
         exit;

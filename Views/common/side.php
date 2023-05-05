@@ -1,7 +1,5 @@
 <?php
-/**
- * SUMMARY:サイドバー
- */
+// OVERVIEW:サイドバー
 ?>
 
 <div class="side">
