@@ -1,12 +1,3 @@
-<?php
-
-// 設定関連を読み込む
-include_once('../config.php');
-// 便利な関数を読み込む
-include_once('../util.php');
-
-?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -42,6 +33,7 @@ include_once('../util.php');
             <p class="mt-2 mb-3 text-muted">&copy; 2023</p>
         </form>
     </main>
+    <?php include_once('../Views/common/foot.php'); ?>
 </body>
 
 </html>

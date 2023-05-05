@@ -1,3 +1,9 @@
+<?php
+/**
+ * SUMMARY:サイドバー
+ */
+?>
+
 <div class="side">
     <div class="side-inner">
         <ul class="nav flex-column">

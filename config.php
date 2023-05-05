@@ -1,4 +1,7 @@
 <?php
+/**
+ * SUMMARY:設定
+ */
 
 // エラー表示あり
 ini_set('display_errors', 1);

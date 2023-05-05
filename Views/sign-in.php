@@ -28,6 +28,7 @@ include_once('../util.php');
             <p class="mt-2 mb-3 text-muted">&copy; 2023</p>
         </form>
     </main>
+    <?php include_once('../Views/common/foot.php'); ?>
 </body>
 
 </html>

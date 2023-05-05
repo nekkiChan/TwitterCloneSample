@@ -1,3 +1,9 @@
+<?php
+/**
+ * SUMMARY:ツイート関連
+ */
+?>
+
 <div class="tweet">
     <div class="user">
         <a href="profile.php?user_id=<?php echo htmlspecialchars($view_tweet['user_id']); ?>">
