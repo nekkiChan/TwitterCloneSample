@@ -1,6 +1,4 @@
-@charset "utf-8";
-
-/* 全体 */
+@charset "utf-8"; /* 全体 */
 .container {
     display: flex;
     justify-content: center;
@@ -61,6 +59,10 @@ a {
     font-size: 13px;
     color: #1af;
     text-decoration: none;
+}
+
+.text-sm {
+    font-size: 0.7rem;
 }
 
 /* サイド */
