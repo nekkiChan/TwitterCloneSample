@@ -3,11 +3,13 @@
 $(
     /** 
      * いいね！がクリックされた時に実行する関数
+     * @return {void}
      */
     function () {
         $('.js-like').click(
             /**
              * いいね！に関するデータを変更する関数
+             * @return {void}
              */
             function () {
                 /** クラス属性'js-like'のオブジェクト */

@@ -20,6 +20,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     // ログインに成功した場合
     if ($user) {
         // ユーザー情報をセッションに保存
+        saveUserSession($user);
 
         // ホーム画面へ遷移
         header('Location: ' . HOME_URL . 'Controllers/home.php');
