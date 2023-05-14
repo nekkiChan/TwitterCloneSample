@@ -122,7 +122,7 @@ function getUserSession()
  * 画像をアップロード
  * @param array $user
  * @param array $file
- * @param string $type
+ * @param string $type icon | tweet
  * @return string 画像のファイル名
  */
 function uploadImage(array $user, array $file, string $type)
