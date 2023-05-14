@@ -21,8 +21,8 @@ if (!$user) {
 if (isset($_POST['body'])) {
     $image_name = null;
     if (isset($_FILES['name']) && is_uploaded_file($_FILES['image']['tmp_name'])) {
-        $image_name = null;
-        // TO-DO:画像をアップロード
+        // 画像をアップロード
+        $image_name = uploadImage($user, $_FILES['image'], 'tweet');
     }
 
     $data = [
