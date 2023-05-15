@@ -6,7 +6,11 @@ include_once '../config.php';
 // 便利な関数を読み込み
 include_once '../util.php';
 
+// ツイートデータ操作モデルを読み込む
+include_once '../Models/tweets.php';
+
 // ログインチェック
+/** ユーザー情報 */
 $user = getUserSession();
 if (!$user) {
     // ログインしていない
@@ -18,31 +22,19 @@ if (!$user) {
 $view_user = $user;
 // ツイート一覧
 // TO-DO:モデルから取得する
-/** @var array ツイート情報（表示用） */
-$view_tweets = [
-    [
-        'user_id' => 1,
-        'user_name' => 'taro',
-        'user_nickname' => '太郎',
-        'user_image_name' => 'sample-person.jpg',
-        'tweet_body' => '今プログラミングをしています',
-        'tweet_image_name' => null,
-        'tweet_created_at' => '2021-03-15 14:00:00',
-        'like_id' => null,
-        'like_count' => 0,
-    ],
-    [
-        'user_id' => 2,
-        'user_name' => 'jiro',
-        'user_nickname' => '次郎',
-        'user_image_name' => null,
-        'tweet_body' => 'コワーキングスペースをオープンしました！',
-        'tweet_image_name' => 'sample-post.jpg',
-        'tweet_created_at' => '2021-03-14 14:00:00',
-        'like_id' => 1,
-        'like_count' => 1,
-    ],
-];
+/**
+ *  @var array ツイート情報（表示用）
+ *  user_id: ユーザーID
+ *  user_name: アカウント名
+ *  user_nickname: ユーザーネーム
+ *  user_image_name: プロフィール画像名
+ *  tweet_body: ツイート本文
+ *  tweet_image_name: ツイート画像名
+ *  tweet_created_at: 投稿時間
+ *  like_id: いいね！しているか（していない場合はnullとなる）
+ *  like_count: いいね！されている数
+ */
+$view_tweets = findTweets($user);
 
 // 画面表示
 include_once '../Views/home.php';

@@ -10,6 +10,7 @@ include_once '../util.php';
 include_once '../Models/tweets.php';
 
 // ログインチェック
+/** ユーザー情報 */
 $user = getUserSession();
 if (!$user) {
     // ログインしていない
