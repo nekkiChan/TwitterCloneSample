@@ -39,7 +39,7 @@ if (isset($_POST['body'])) {
     }
 }
 
-/** @var array ユーザー情報  */
+/** @var array ユーザー情報（表示用）  */
 $view_user = $user;
 
 // 画面表示
