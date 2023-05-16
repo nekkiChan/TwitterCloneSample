@@ -24,13 +24,15 @@ $view_user = $user;
 // TO-DO:モデルから取得する
 /**
  *  @var array ツイート情報（表示用）
+ *  tweet_id: ツイートid
+ *  tweet_status: ツイートのステータス
+ *  tweet_body: ツイート本文
+ *  tweet_image_name: ツイート画像名
+ *  tweet_created_at: 投稿時間
  *  user_id: ユーザーID
  *  user_name: アカウント名
  *  user_nickname: ユーザーネーム
  *  user_image_name: プロフィール画像名
- *  tweet_body: ツイート本文
- *  tweet_image_name: ツイート画像名
- *  tweet_created_at: 投稿時間
  *  like_id: いいね！しているか（していない場合はnullとなる）
  *  like_count: いいね！されている数
  */
