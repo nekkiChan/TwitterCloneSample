@@ -9,7 +9,7 @@ include_once '../util.php';
 // ユーザーデータ操作モデルを読み込み
 include_once '../Models/users.php';
 
-/** @var bool ログイン結果 */
+// ログイン結果
 $try_login_result = null;
 
 // メールアドレスとパスワードが入力されている場合
@@ -31,7 +31,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     }
 }
 
-/** @var bool ログイン結果（表示用） */
+// 表示用の変数
 $view_try_login_result = $try_login_result;
 
 //  画面表示

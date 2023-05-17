@@ -10,7 +10,6 @@ include_once '../util.php';
 include_once '../Models/tweets.php';
 
 // ログインチェック
-/** ユーザー情報 */
 $user = getUserSession();
 if (!$user) {
     // ログインしていない
@@ -40,7 +39,7 @@ if (isset($_POST['body'])) {
     }
 }
 
-/** @var array ユーザー情報（表示用）  */
+// 表示用の変数
 $view_user = $user;
 
 // 画面表示

@@ -10,7 +10,6 @@ include_once '../util.php';
 include_once '../Models/likes.php';
 
 // ログインチェック
-/** ユーザー情報 */
 $user = getUserSession();
 if (!$user) {
     // ログインしていない
