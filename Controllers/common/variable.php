@@ -2,14 +2,19 @@
 // OVERVIEW:変数の説明
 
 // ユーザー関連
-/** ユーザー情報 */
-$user = null;
-/** @var array ユーザー情報（表示用） */
-$view_user = null;
+/** @var array|bool ユーザー情報 */
+$user = false;
+/** @var array|bool ユーザー情報（表示用） */
+$view_user = false;
+/** @var string|bool ユーザーID（初期値は自分のユーザーID） */
+$requested_user_id = false;
+/** @var array|bool プロフィール詳細（表示用） */
+$view_requested_user = false;
+
 
 // ツイート関連
 /**
- *  @var array ツイート情報の配列（表示用）
+ *  @var array|bool ツイート情報の配列（表示用）
  *  tweet_id: ツイートid
  *  tweet_status: ツイートのステータス
  *  tweet_body: ツイート本文
@@ -22,9 +27,9 @@ $view_user = null;
  *  like_id: いいね！しているか（していない場合はnullとなる）
  *  like_count: いいね！されている数
  */
-$view_tweets = null;
+$view_tweets = false;
 /**
- *  @var array ツイート情報（表示用）
+ *  @var array|bool ツイート情報（表示用）
  *  tweet_id: ツイートid
  *  tweet_status: ツイートのステータス
  *  tweet_body: ツイート本文
@@ -37,14 +42,14 @@ $view_tweets = null;
  *  like_id: いいね！しているか（していない場合はnullとなる）
  *  like_count: いいね！されている数
  */
-$view_tweet = null;
-/** キーワード情報（表示用） */
-$view_keyword = null;
+$view_tweet = false;
+/** @var array|bool キーワード情報（表示用） */
+$view_keyword = false;
 
 // システム関連
 /** @var bool ログイン結果 */
-$try_login_result = null;
+$try_login_result = false;
 /** @var bool ログイン結果（表示用） */
-$view_try_login_result = null;
+$view_try_login_result = false;
 
 ?>

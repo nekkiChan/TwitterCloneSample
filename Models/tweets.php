@@ -59,8 +59,7 @@ function findTweets(array $user, string $keyword = null)
 
     // 検索のSQLクエリを作成
     $query = <<<SQL
-        SELECT
-            T.id AS tweet_id,
+        SELECT T.id AS tweet_id,
             T.status AS tweet_status,
             T.body AS tweet_body,
             T.image_name AS tweet_image_name,
@@ -74,18 +73,20 @@ function findTweets(array $user, string $keyword = null)
             -- いいね！数
             -- これをサブクエリという。
             -- 外側で取得したレコードの数だけサブクエリが実行されるので、処理が遅くなる可能性あり。
-            (SELECT COUNT(*) FROM likes WHERE status = 'active' AND tweet_id = T.id) AS like_count
-        FROM
-            -- tweetsをTとして扱う
-            tweets AS T
-            -- ユーザーテーブルをusers.idとtweets.user_idで紐づける
-            JOIN
-            users AS U ON U.id = T.user_id AND U.status = 'active'
-            -- いいね！テーブルをlikes.tweet_idとtweets_idで紐づける
-            LEFT JOIN
-            likes AS L ON L.tweet_id = T.id AND L.status = 'active' AND L.user_id = '$login_user_id'
-        WHERE
-            T.status = 'active'
+            (
+                SELECT COUNT(*)
+                FROM likes
+                WHERE status = 'active'
+                    AND tweet_id = T.id
+            ) AS like_count
+        FROM -- tweetsをTとして扱う
+            tweets AS T -- ユーザーテーブルをusers.idとtweets.user_idで紐づける
+            JOIN users AS U ON U.id = T.user_id
+            AND U.status = 'active' -- いいね！テーブルをlikes.tweet_idとtweets_idで紐づける
+            LEFT JOIN likes AS L ON L.tweet_id = T.id
+            AND L.status = 'active'
+            AND L.user_id = '$login_user_id'
+        WHERE T.status = 'active' 
     SQL;
 
     // 検索キーワードが入力されていた場合

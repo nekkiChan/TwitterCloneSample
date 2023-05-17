@@ -98,4 +98,75 @@ function findUserAndCheckPassword(string $email, string $password)
 
     return $user;
 }
+
+/**
+ * ユーザーを1件取得
+ * @param int $user_id 取得するユーザーid
+ * @param int $login_user_id 自分のユーザーid（ログインユーザー）
+ * @return array|false
+ */
+function findUser(int $user_id, int $login_user_id = null)
+{
+    // DB接続
+    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+    // 接続エラーがある場合->処理停止
+    if ($mysqli->connect_errno) {
+        echo 'MySQLの接続に失敗しました。：' . $mysqli->connect_errno . "\n";
+        exit;
+    }
+
+    // エスケープ（SQLインジェクション対策）
+    $user_id = $mysqli->real_escape_string($user_id);
+    $login_user_id = $mysqli->real_escape_string($login_user_id);
+
+    // SQLクエリを作成（検索）
+    $query = <<<SQL
+        SELECT U.id,
+            U.name,
+            U.nickname,
+            U.email,
+            U.image_name,
+            -- フォロー中の数
+            (
+                SELECT COUNT(1)
+                FROM follows
+                WHERE status = 'active'
+                    AND follow_user_id = U.id
+            ) AS follow_user_count,
+            -- フォロワーの数
+            (
+                SELECT COUNT(1)
+                FROM follows
+                WHERE status = 'active'
+                    AND followed_user_id = U.id
+            ) AS followed_user_count,
+            -- ログインユーザーがフォローしている場合、フォローIDが入る
+            F.id AS follow_id
+        FROM users AS U
+            LEFT JOIN follows AS F ON F.status = 'active'
+            AND F.followed_user_id = '$user_id'
+            AND F.follow_user_id = '$login_user_id'
+        WHERE U.status = 'active'
+            AND U.id = '$user_id' 
+    SQL;
+
+    // 戻り値を作成
+    // クエリを実行し、SQLエラーでない場合
+    if ($result = $mysqli->query($query)) {
+        // 戻り値用の変数にセット：ユーザー情報1件
+        $response = $result->fetch_array(MYSQLI_ASSOC);
+    } else {
+        // 戻り値用の変数にセット：失敗
+        $response = false;
+        echo 'エラーメッセージ：' . $mysqli->error . "\n";
+    }
+
+    // 後処理
+    // DB接続を開放
+    $mysqli->close();
+
+    return $response;
+}
+
 ?>
