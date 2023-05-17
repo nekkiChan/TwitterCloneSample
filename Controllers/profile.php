@@ -36,7 +36,7 @@ $view_user = $user;
 // プロフィール詳細
 $view_requested_user = findUser($requested_user_id, $user['id']);
 // ツイート一覧
-$view_tweets = findTweets($user,null,[$requested_user_id]);
+$view_tweets = findTweets($user, null, [$requested_user_id]);
 
 // 画面表示
 include_once '../Views/profile.php';
