@@ -27,7 +27,7 @@ if(isset($_GET['keyword'])){
 $view_user = $user;
 $view_keyword = $keyword;
 // ツイート一覧
-$view_tweets = findTweets($user, $keyword);
+$view_tweets = findTweets($user,$keyword);
 
 // 画面表示
 include_once '../Views/search.php';
