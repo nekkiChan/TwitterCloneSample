@@ -20,8 +20,35 @@ if (!$user) {
 }
 
 // ユーザーの情報を変更
-// ニックネームとユーザー名とメールアドレスが入力されている場合
-if (true) {
+// ユーザー名とニックネームとメールアドレスが入力されている場合
+if (isset($_POST['name']) && isset($_POST['nickname']) && isset($_POST['email'])) {
+    $data = [
+        'id' => $user['id'],
+        'name' => $_POST['name'],
+        'nickname' => $_POST['nickname'],
+        'email' => $_POST['email'],
+    ];
+
+    // パスワードが入力されていた場合->パスワード変更
+    if (isset($_POST['password']) && $_POST['password'] !== '') {
+        $data['password'] = $_POST['password'];
+    }
+
+    // ファイルがアップロードされていた場合->画像アップロード
+    if (isset($_FILES['image']) && is_uploaded_file($_FILES['image']['tmp_name'])) {
+        $data['image_name'] = uploadImage($user, $_FILES['image'], 'user');
+    }
+
+    // 更新を実行し、成功した場合
+    if (updateUser($data)) {
+        // 更新後のユーザー情報をセッションに保存しなおす
+        $user = findUser($user['id']);
+        saveUserSession($user);
+
+        // リロード
+        header('Location: ' . HOME_URL . 'Controllers/profile.php');
+        exit;
+    }
 }
 
 // 表示するユーザーIDを取得（デフォルトはログインユーザー）
