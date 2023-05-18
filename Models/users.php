@@ -122,7 +122,8 @@ function findUser(int $user_id, int $login_user_id = null)
 
     // SQLクエリを作成（検索）
     $query = <<<SQL
-        SELECT U.id,
+        SELECT 
+            U.id,
             U.name,
             U.nickname,
             U.email,

@@ -2,13 +2,42 @@
 // OVERVIEW:変数の説明
 
 // ユーザー関連
-/** @var array|bool ユーザー情報 */
+/** @var array|bool ユーザー情報 
+ *  id: ユーザーID
+ *  status: ユーザーのステータス
+ *  nickname: ユーザーネーム
+ *  name: アカウント名
+ *  email: メールアドレス
+ *  password: パスワード
+ *  image_name: プロフィール画像名
+ *  created_at: アカウント作成日
+ *  updated_at: アップデート日
+ */
 $user = false;
-/** @var array|bool ユーザー情報（表示用） */
+/** @var array|bool ユーザー情報（表示用）
+ *  id: ユーザーID
+ *  status: ユーザーのステータス
+ *  nickname: ユーザーネーム
+ *  name: アカウント名
+ *  email: メールアドレス
+ *  password: パスワード
+ *  image_name: プロフィール画像名
+ *  created_at: アカウント作成日
+ *  updated_at: アップデート日
+ */
 $view_user = false;
 /** @var string|bool ユーザーID（初期値は自分のユーザーID） */
 $requested_user_id = false;
-/** @var array|bool プロフィール詳細（表示用） */
+/** @var array|bool プロフィール詳細（表示用）
+ *  id: ユーザーID
+ *  name: アカウント名
+ *  nickname: ユーザーネーム
+ *  email: メールアドレス
+ *  image_name: プロフィール画像名
+ *  follow_user_count: フォロー数
+ *  followed_user_count: フォロワー数
+ *  follow_id: フォローしているか
+ */
 $view_requested_user = false;
 
 

@@ -27,7 +27,7 @@ if (true) {
 // 表示するユーザーIDを取得（デフォルトはログインユーザー）
 // URLにuser_idがある場合->それを対象ユーザーにする
 $requested_user_id = $user['id'];
-if (isset($GET['user_id'])) {
+if (isset($_GET['user_id'])) {
     $requested_user_id = $_GET['user_id'];
 }
 

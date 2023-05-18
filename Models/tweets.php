@@ -60,7 +60,8 @@ function findTweets(array $user, string $keyword = null, $user_ids = null)
 
     // 検索のSQLクエリを作成
     $query = <<<SQL
-        SELECT T.id AS tweet_id,
+        SELECT 
+            T.id AS tweet_id,
             T.status AS tweet_status,
             T.body AS tweet_body,
             T.image_name AS tweet_image_name,
