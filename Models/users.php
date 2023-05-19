@@ -66,7 +66,7 @@ function updateUser(array $data)
     // SET句のカラムを準備
     $set_columns = [];
     foreach (['name', 'nickname', 'email', 'password', 'image_name', 'updated_at'] as $column) {
-        // 入力があれば、更新の対象にする
+        // 入力があれば、更新の対象にする（例：'name' = "hanako"）
         if (isset($data[$column]) && $data[$column] !== '') {
             $set_columns[] = $column . ' = "' 
             . $mysqli->real_escape_string($data[$column]) . '"';

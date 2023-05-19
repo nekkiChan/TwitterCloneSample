@@ -29,7 +29,7 @@ $view_user = false;
 /** @var string|bool ユーザーID（初期値は自分のユーザーID） */
 $requested_user_id = false;
 /** @var array|bool プロフィール詳細（表示用）
- *  id: ユーザーID
+ *  id: ユーザーID（初期値は自分のユーザーID）
  *  name: アカウント名
  *  nickname: ユーザーネーム
  *  email: メールアドレス
@@ -75,10 +75,14 @@ $view_tweet = false;
 /** @var array|bool キーワード情報（表示用） */
 $view_keyword = false;
 
-// システム関連
+// ログイン関連
 /** @var bool ログイン結果 */
 $try_login_result = false;
 /** @var bool ログイン結果（表示用） */
 $view_try_login_result = false;
+
+// フォロー関連
+/** @var int|bool|null フォローID */
+$follow_id = false;
 
 ?>

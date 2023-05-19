@@ -19,3 +19,5 @@
     defer></script>
 <!-- いいね!JS -->
 <script src="<?php echo HOME_URL; ?>Views/js/likes.js" defer></script>
+<!-- フォローJS -->
+<script src="<?php echo HOME_URL; ?>Views/js/follow.js" defer></script>

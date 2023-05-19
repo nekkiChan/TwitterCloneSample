@@ -12,7 +12,7 @@ $(
              * @return {void}
              */
             function () {
-                /** クラス属性'js-like'のオブジェクト */
+                /** クリックした要素 */
                 const this_obj = $(this);
                 /** データ属性'tweet_id'のオブジェクト */
                 const tweet_id = $(this).data('tweet-id');
