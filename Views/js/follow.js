@@ -10,6 +10,15 @@ $(function () {
             /** データ属性'follow_id'のオブジェクト */
             const follow_id = $(this).data('follow-id');
 
+            // MyLib:begin
+            /** データ属性'js-follow_follower'のオブジェクト */
+            const follow_obj = $(this).parent().parent().find('.js-follow-follower');
+            /** データ属性'js-followed-count'のオブジェクト */
+            const followed_user_count_obj = follow_obj.find('.js-followed-count');
+            /** フォロワー数（表示用） */
+            let followed_count = Number(followed_user_count_obj.html());
+            // MyLib:end
+
             if (follow_id) {
                 // フォロー取り消し
                 $.ajax({
@@ -26,6 +35,11 @@ $(function () {
                         this_obj.addClass('btn-reverse');
                         // フォローボタンの文言変更
                         this_obj.text('フォローする');
+                        // MyLib:begin
+                        // フォロワー数
+                        followed_count--;
+                        followed_user_count_obj.html(followed_count);
+                        // MyLib:end
                         // フォローIDを削除
                         this_obj.data('follow-id', null);
                     })
@@ -50,6 +64,11 @@ $(function () {
                         this_obj.removeClass('btn-reverse');
                         // フォローボタンの文言変更
                         this_obj.text('フォローを外す');
+                        // MyLib:begin
+                        // フォロワー数
+                        followed_count++;
+                        followed_user_count_obj.html(followed_count);
+                        // MyLib:end
                         // フォローIDを付与
                         this_obj.data('follow-id', data['follow_id']);
                     })

@@ -95,12 +95,12 @@
                     <?php echo htmlspecialchars($view_requested_user['name']); ?>
                 </div>
 
-                <div class="follow-follower">
+                <div class="follow-follower js-follow-follower">
                     <div class="follow-count">
                         <?php echo htmlspecialchars($view_requested_user['follow_user_count']); ?>
                     </div>
                     <div class="follow-text">フォロー中</div>
-                    <div class="follow-count">
+                    <div class="follow-count js-followed-count">
                         <?php echo htmlspecialchars($view_requested_user['followed_user_count']); ?>
                     </div>
                     <div class="follow-text">フォロワー</div>
