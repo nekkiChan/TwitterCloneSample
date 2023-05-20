@@ -3,8 +3,12 @@
 
 /**
  * いいね！を作成
- * @param array $data
- * @return int|false
+ * @param array<tweet_id:int,user_id:int> $data
+ * $data = [
+ * 'tweet_id' => ツイートID,
+ * 'user_id' => ユーザーID,
+ * ];
+ * @return int|false likes.id | false
  */
 function createLike(array $data)
 {
@@ -45,8 +49,12 @@ function createLike(array $data)
 
 /**
  * いいね！を取り消し
- * @param array $data
- * @return bool
+ * @param array<like_id:int,user_id:int> $data
+ * $data = [
+ * 'like_id' => いいね！ID,
+ * 'user_id' => ユーザーID,
+ * ];
+ * @return bool true | false
  */
 function deleteLike(array $data)
 {

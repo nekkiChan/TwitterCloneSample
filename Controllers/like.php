@@ -51,7 +51,7 @@ if (isset($_POST['tweet_id'])) {
 if (isset($_POST['like_id'])) {
     $data = [
         'like_id' => $_POST['like_id'],
-        'user_id' => $user['id']
+        'user_id' => $user['id'],
     ];
     // いいね！削除
     deleteLike($data);

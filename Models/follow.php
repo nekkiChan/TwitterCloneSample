@@ -3,10 +3,12 @@
 
 /**
  * フォローを作成
- * @param array $data 
- * follow_user_id（フォローするユーザーID）,
- * followed_user_id（フォローされるユーザーID）
- * @return int|false
+ * @param array<follow_user_id:int,followed_user_id:int> $data
+ * $data = [
+ * 'follow_user_id' => フォローするユーザーID,
+ * 'followed_user_id' => フォローされるユーザーID,
+ * ]
+ * @return int|false follows.id | false
  */
 function createFollow(array $data)
 {
@@ -47,10 +49,12 @@ function createFollow(array $data)
 
 /**
  * フォローを取り消し
- * @param array $data
- * follow_id（フォローID。follows.idのこと）,
- * follow_user_id（フォローするユーザーID。follows.follow_user_idのこと）
- * @return bool
+ * @param array<follow_id:int,follow_user_id:int> $data
+ * $data = [
+ * 'follow_id' => フォローID。follows.idのこと,
+ * 'follow_user_id' => フォローするユーザーID。follows.follow_user_idのこと,
+ * ];
+ * @return bool true | false
  */
 function deleteFollow(array $data)
 {
