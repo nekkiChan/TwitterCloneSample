@@ -85,4 +85,24 @@ $view_try_login_result = false;
 /** @var int|bool|null フォローID */
 $follow_id = false;
 
+// 通知関連
+/** 
+ * @var array|bool 通知一覧情報
+ * notification_id: 通知ID
+ * notification_message: 通知メッセージ
+ * user_name: アカウント名
+ * user_nickname: ユーザー名
+ * user_image_name: プロフィール画像名
+ */
+$view_notifications = false;
+/** 
+ * @var array|bool 通知情報
+ * notification_id: 通知ID
+ * notification_message: 通知メッセージ
+ * user_name: アカウント名
+ * user_nickname: ユーザー名
+ * user_image_name: プロフィール画像名
+ */
+$view_notification = false;
+
 ?>
