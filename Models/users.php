@@ -3,7 +3,11 @@
 
 /**
  * ユーザーを作成
- * @param array $data
+ * @param array{nickname:string,name:string,email:string,password:string} $data
+ * nickname: ユーザー名。
+ * name: アカウント名。
+ * email: メールアドレス。
+ * password: パスワード。
  * @return bool
  */
 function createUser(array $data)
@@ -46,7 +50,11 @@ function createUser(array $data)
 
 /**
  * ユーザーを更新
- * @param array $data
+ * @param array{id:int,name:string,nickname:string,email:string} $data
+ * id: ユーザーID。
+ * name: アカウント名。
+ * nickname: ユーザー名。
+ * email: メールアドレス。
  * @return bool
  */
 function updateUser(array $data)
@@ -96,7 +104,7 @@ function updateUser(array $data)
 /**
  * ユーザー情報取得：ログインチェック
  * @param string $email メール
- * @param string $password
+ * @param string $password パスワード
  * @return array|false
  */
 function findUserAndCheckPassword(string $email, string $password)

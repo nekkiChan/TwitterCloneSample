@@ -3,7 +3,10 @@
 
 /**
  * ツイート作成
- * @param array $data
+ * @param array{user_id:int,body:string,image_name:string} $data
+ * user_id: ユーザーID。
+ * body: ツイート本文。
+ * image_name: ツイート画像名。
  * @return bool
  */
 function createTweet(array $data)

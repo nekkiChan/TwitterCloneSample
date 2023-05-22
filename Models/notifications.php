@@ -3,12 +3,10 @@
 
 /**
  * 通知を作成
- * @param array<received_user_id:int,sent_user_id:int,message:string> $data 
- * $data = [
- * 'received_user_id' => 受信側のユーザーID,
- * 'sent_user_id' => 送信側のユーザーID,
- * 'message' => メッセージ,
- * ]
+ * @param array{received_user_id:int,sent_user_id:int,message:string} $data 
+ * received_user_id: 受信側のユーザーID。
+ * sent_user_id: 送信側のユーザーID。
+ * message: メッセージ。
  * @return int|false notifications.id | false
  */
 function createNotification(array $data)
@@ -51,15 +49,7 @@ function createNotification(array $data)
 /**
  * 通知の一覧を取得
  * @param int $user_id ユーザーID
- * @return array<notification_id:int,notification_message:string,user_name:string,user_nickname:string,user_image_name:string>|false
- * 
- * array = [
- * 'notification_id' => 通知ID,
- * 'notification_message' => 通知メッセージ,
- * 'user_name' => アカウント名,
- * 'user_nickname' => ユーザー名,
- * 'user_image_name' => プロフィール画像名,
- * ] | false
+ * @return array{notification_id:int,notification_message:string,user_name:string,user_nickname:string,user_image_name:string}|false array | false
  */
 function findNotifications(string $user_id)
 {
