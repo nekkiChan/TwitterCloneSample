@@ -328,12 +328,6 @@ body.signup {
     border: 3px solid rgb(235, 238, 240);
 }
 
-.profile .profile-area .top .user img.icon-change {
-    width: 50%;
-    opacity: 0.7;
-    transform: translate(50%, -150%);
-}
-
 .profile .profile-area .top button {
     margin-bottom: 20px;
 }

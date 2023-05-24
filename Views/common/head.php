@@ -21,5 +21,3 @@
 <script src="<?php echo HOME_URL; ?>Views/js/likes.js" defer></script>
 <!-- フォローJS -->
 <script src="<?php echo HOME_URL; ?>Views/js/follow.js" defer></script>
-<!-- アイコン変更JS -->
-<script src="<?php echo HOME_URL; ?>Views/js/change_icon.js" defer></script>

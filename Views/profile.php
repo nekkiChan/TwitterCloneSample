@@ -59,7 +59,6 @@
                                             <div class="user js-change-icon">
                                                 <img src="<?php echo buildImagePath($view_user['image_name'], 'user'); ?>"
                                                     class = "icon-profile" alt="">
-                                                <img src="../Views/img/add.svg" class="icon-change" alt="">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="" class="mb-1">プロフィール写真</label>
