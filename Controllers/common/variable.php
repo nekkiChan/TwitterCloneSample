@@ -84,6 +84,8 @@ $view_try_login_result = false;
 // フォロー関連
 /** @var int|bool|null フォローID */
 $follow_id = false;
+/** @var array|bool 自分がフォローしているユーザーID一覧 */
+$following_user_ids = false;
 
 // 通知関連
 /** 
